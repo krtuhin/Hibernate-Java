@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--add hibernate dtd file-->
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+<!--creating hibernate config-->
+<hibernate-configuration>
+    <!--database connection-->
+    <session-factory>
+        <!--load driver--> 
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <!--url set-->
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1524:orcl2</property>
+        <!--username and password set-->
+        <property name="connection.username">scott</property>
+        <property name="connection.password">system</property>
+        <!--this is for query of every database is little bit different-->
+        <property name="dialect">org.hibernate.dialect.OracleDialect</property>
+        <!--it will automatically create database when database will not be present 
+        otherwise update the database-->
+        <property name="hbm2ddl.auto">update</property>
+        <!--it will also show the query that is created by hibernate automatically-->
+        <property name="show_sql">true</property>
+    </session-factory>
+    
+</hibernate-configuration>
+
+
