@@ -23,6 +23,8 @@
         <property name="hbm2ddl.auto">update</property>
         <!--it will also show the query that is created by hibernate automatically-->
         <property name="show_sql">true</property>
+        <!--map the class as table-->
+        <mapping class="com.mavenp.Student"></mapping>
     </session-factory>
     
 </hibernate-configuration>

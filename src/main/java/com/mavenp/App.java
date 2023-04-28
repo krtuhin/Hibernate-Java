@@ -1,6 +1,8 @@
 package com.mavenp;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class App {
@@ -13,7 +15,21 @@ public class App {
         cfg.configure();
         SessionFactory sessionFactory = cfg.buildSessionFactory();
 
-        System.out.println(sessionFactory);
-        System.out.println(sessionFactory.isClosed());
+        Student st = new Student(110,"Rohit","CSE");
+        
+        System.out.println(st.toString());
+        
+        Session session = sessionFactory.openSession();
+        
+        Transaction transaction =  session.beginTransaction();
+        
+        session.save(st);
+        
+        transaction.commit();
+        
+        //we can also write the commit syntax as below
+//        session.getTransaction().commit();
+        
+        session.close();
     }
 }
