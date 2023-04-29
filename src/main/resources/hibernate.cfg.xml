@@ -17,7 +17,7 @@
         <property name="connection.username">scott</property>
         <property name="connection.password">system</property>
         <!--this is for query of every database is little bit different-->
-        <property name="dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="dialect">org.hibernate.dialect.Oracle9iDialect</property>
         <!--it will automatically create database when database will not be present 
         otherwise update the database-->
         <property name="hbm2ddl.auto">update</property>
@@ -25,6 +25,8 @@
         <property name="show_sql">true</property>
         <!--map the class as table-->
         <mapping class="com.mavenp.Student"></mapping>
+        
+        <mapping class="com.mavenp.Address"></mapping>
     </session-factory>
     
 </hibernate-configuration>
