@@ -12,6 +12,7 @@ public class Student {
     private int s_id;
     private String name;
     private String department;
+    private Certificate certi;
 
     public Student(int s_id, String name, String department) {
         this.s_id = s_id;
@@ -44,6 +45,14 @@ public class Student {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public Certificate getCerti() {
+        return certi;
+    }
+
+    public void setCerti(Certificate certi) {
+        this.certi = certi;
     }
 
     //for printing the details
