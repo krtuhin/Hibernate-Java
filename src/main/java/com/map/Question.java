@@ -1,10 +1,10 @@
 package com.map;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Question {
@@ -14,9 +14,8 @@ public class Question {
     private int questionId;
     private String question;
 
-    @OneToOne
-    @JoinColumn(name = "ans_id") //change the join column details (like name)
-    private Answer ans;
+    @OneToMany(mappedBy = "que") //do not create any foreign key column in answer table but bidirectional
+    private List<Answer> answers;
 
     public Question() {
     }
@@ -37,12 +36,12 @@ public class Question {
         this.question = question;
     }
 
-    public Answer getAns() {
-        return ans;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setAns(Answer ans) {
-        this.ans = ans;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
 }

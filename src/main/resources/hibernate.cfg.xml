@@ -20,7 +20,8 @@
         <property name="dialect">org.hibernate.dialect.Oracle9iDialect</property>
         <!--it will automatically create database when database will not be present 
         otherwise update the database-->
-        <property name="hbm2ddl.auto">update</property>
+        <!--create command everytime creates new table and dropes the old table-->
+        <property name="hbm2ddl.auto">create</property>
         <!--it will also show the query that is created by hibernate automatically-->
         <property name="show_sql">true</property>
         <!--map the class as table-->

@@ -3,7 +3,7 @@ package com.map;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Answer {
@@ -13,7 +13,7 @@ public class Answer {
     private int answerId;
     private String answer;
 
-    @OneToOne(mappedBy = "ans") //do not create any foreign key column in answer table but bidirectional
+    @ManyToOne
     private Question que;
 
     public Answer() {
