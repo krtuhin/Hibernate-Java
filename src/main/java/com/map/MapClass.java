@@ -24,6 +24,7 @@ public class MapClass {
 
         answer.setAnswerId(003);
         answer.setAnswer("Java is a Object-Oriented-Programming Language.");
+        answer.setQue(question);
 
         question.setAns(answer);
 
@@ -36,7 +37,8 @@ public class MapClass {
         Answer answer1 = new Answer();
 
         answer1.setAnswerId(546);
-        answer1.setAnswer("Object is instance of a class..");
+        answer1.setAnswer("Object is instance of a class.");
+        answer1.setQue(question1);
 
         question1.setAns(answer1);
 
@@ -50,6 +52,11 @@ public class MapClass {
         session.save(answer1);
 
         tx.commit();
+
+        //fetching data
+        Question q = (Question) session.get(Question.class, 228);
+
+        System.out.println(q.getQuestion() + "\n" + q.getAns().getAnswer());
 
         session.close();
         sessionFactory.close();
