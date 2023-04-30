@@ -31,6 +31,8 @@
         
         <mapping class="com.map.Question"></mapping>
         <mapping class="com.map.Answer"></mapping>
+        <mapping class="com.map1.Employee"></mapping>
+        <mapping class="com.map1.Project"></mapping>
     </session-factory>
     
 </hibernate-configuration>
