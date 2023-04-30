@@ -3,6 +3,7 @@ package com.map;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -14,7 +15,7 @@ public class Question {
     private int questionId;
     private String question;
 
-    @OneToMany(mappedBy = "que") //do not create any foreign key column in answer table but bidirectional
+    @OneToMany(mappedBy = "que", fetch = FetchType.EAGER) //eager will load all things associated with question by default fetch type is LAZY
     private List<Answer> answers;
 
     public Question() {
