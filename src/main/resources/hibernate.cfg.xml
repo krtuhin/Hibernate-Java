@@ -27,6 +27,9 @@
         <mapping class="com.mavenp.Student"></mapping>
         
         <mapping class="com.mavenp.Address"></mapping>
+        
+        <mapping class="com.map.Question"></mapping>
+        <mapping class="com.map.Answer"></mapping>
     </session-factory>
     
 </hibernate-configuration>
