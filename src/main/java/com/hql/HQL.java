@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class HQL {
@@ -22,6 +23,7 @@ public class HQL {
         //dynamic query
         q.setParameter("x", "Mechanical");
         q.setParameter("n", 9);
+
         // Single result --> Unique syntax: q.uniqueResult();
         //Multiple result --> List
         List<Student> list = q.getResultList();
@@ -30,6 +32,20 @@ public class HQL {
             System.out.println(student.getName());
         }
 
+        System.out.println("-----------------------------------------------------");
+
+        Transaction tx = s.beginTransaction();
+
+        //delete query
+        Query q2 = s.createQuery("delete from Student as s where s.department=:d");
+
+        q2.setParameter("d", "IT");
+
+        int r = q2.executeUpdate();
+
+        System.out.println("Deleted: " + r);
+
+        tx.commit();
         s.close();
         factory.close();
     }
