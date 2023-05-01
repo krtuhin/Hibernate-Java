@@ -15,13 +15,13 @@ public class HQL {
         //HQL
         //syntax
         //String query = "from Student where department='IT'"; //the name Student is Class name not Database table name
-        String query = "from Student where department=:x"; //the name Student is Class name not Database table name
+        String query = "from Student s where s.department=:x and s.s_id=:n"; //the name Student is Class name not Database table name
 
         Query q = s.createQuery(query); //getting query object
-        
-        //dynamic query
-        q.setParameter("x", "ECE");
 
+        //dynamic query
+        q.setParameter("x", "Mechanical");
+        q.setParameter("n", 9);
         // Single result --> Unique syntax: q.uniqueResult();
         //Multiple result --> List
         List<Student> list = q.getResultList();
