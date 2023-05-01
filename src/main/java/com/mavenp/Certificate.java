@@ -1,14 +1,19 @@
-
 package com.mavenp;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Certificate {
+
     private String course;
     private String duration;
 
     public Certificate() {
+    }
+
+    public Certificate(String course, String duration) {
+        this.course = course;
+        this.duration = duration;
     }
 
     public String getCourse() {
