@@ -14,9 +14,13 @@ public class HQL {
         Session s = factory.openSession();
         //HQL
         //syntax
-        String query = "from Student where department='IT'"; //the name Student is Class name not Database table name
+        //String query = "from Student where department='IT'"; //the name Student is Class name not Database table name
+        String query = "from Student where department=:x"; //the name Student is Class name not Database table name
 
         Query q = s.createQuery(query); //getting query object
+        
+        //dynamic query
+        q.setParameter("x", "ECE");
 
         // Single result --> Unique syntax: q.uniqueResult();
         //Multiple result --> List
