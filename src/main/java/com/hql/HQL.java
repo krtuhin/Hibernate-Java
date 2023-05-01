@@ -45,6 +45,19 @@ public class HQL {
 
         System.out.println("Deleted: " + r);
 
+        System.out.println("----------------------..............------------------");
+
+        //update query
+        Query q3 = s.createQuery("update Student set department=:c where s_id=:i");
+
+        q3.setParameter("c", "CSE");
+
+        q3.setParameter("i", 2);
+
+        int n = q3.executeUpdate();
+
+        System.out.println(n + " objects updated..");
+
         tx.commit();
         s.close();
         factory.close();
