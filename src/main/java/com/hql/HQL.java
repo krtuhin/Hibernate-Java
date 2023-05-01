@@ -1,6 +1,7 @@
 package com.hql;
 
 import com.mavenp.Student;
+import java.util.Arrays;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.Session;
@@ -59,6 +60,19 @@ public class HQL {
         System.out.println(n + " objects updated..");
 
         tx.commit();
+
+        //how to execute join query
+        System.out.println("-----------------------------------.....................--------------------");
+
+        Query q4 = s.createQuery("select q.questionId, q.question, a.answer from "
+                + "Question as q INNER JOIN q.answers as a");
+
+        List<Object[]> list1 = q4.getResultList();
+
+        for (Object[] ob : list1) {
+            System.out.println(Arrays.toString(ob));
+        }
+
         s.close();
         factory.close();
     }
