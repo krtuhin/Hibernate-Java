@@ -1,6 +1,7 @@
 package com.map;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +16,7 @@ public class Question {
     private int questionId;
     private String question;
 
-    @OneToMany(mappedBy = "que", fetch = FetchType.EAGER) //eager will load all things associated with question by default fetch type is LAZY
+    @OneToMany(mappedBy = "que", fetch = FetchType.EAGER, cascade = CascadeType.ALL) //eager will load all things associated with question by default fetch type is LAZY cascade type all automatic save, delete, update all rows of this table related to question
     private List<Answer> answers;
 
     public Question() {
