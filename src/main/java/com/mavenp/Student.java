@@ -1,14 +1,22 @@
 package com.mavenp;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity //it is the annotation to represent a class as a table in database
 //@Table(name = "student_details") used to change the table name of the entity
+@Cacheable //to use cache
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY) //cache use type strategy
 public class Student {
 
     @Id //consider the variable as primary key of the table
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int s_id;
     private String name;
     private String department;

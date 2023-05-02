@@ -21,10 +21,14 @@
         <!--it will automatically create database when database will not be present 
         otherwise update the database-->
         <!--create command everytime creates new table and dropes the old table-->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <!--it will also show the query that is created by hibernate automatically-->
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
+        <!--second level cache declare-->
+        <property name="cache.use_second_level_cache">true</property>
+        <!--cache class map-->
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
         <!--map the class as table-->
         <mapping class="com.mavenp.Student"></mapping>
         
